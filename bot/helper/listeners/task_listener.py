@@ -407,7 +407,7 @@ class TaskListener(TaskConfig):
                         (self.user_dict.get("INDEX_URL", "")) if self.private_link else Config.INDEX_URL
                     )
                     if INDEX_URL:
-                        url_path = rutils.quote(f"{name}")
+                        url_path = rutils.quote(f"{self.name}")
                         share_url = f"{INDEX_URL}/{url_path}?a=view"
                         buttons.url_button("⚡ Download", share_url)
                 button = buttons.build_menu(2)
