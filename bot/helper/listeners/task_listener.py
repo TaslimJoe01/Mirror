@@ -409,7 +409,7 @@ class TaskListener(TaskConfig):
                     elif Config.INDEX_URL:
                         INDEX_URL = Config.INDEX_URL
                     if INDEX_URL:
-                        url_path = rutils.quote(f"{rpath}")
+                        url_path = rutils.quote(f"{name}")
                         share_url = f"{INDEX_URL}/{url_path}?a=view"
                         buttons.url_button("⚡ Download", share_url)
                 button = buttons.build_menu(2)
