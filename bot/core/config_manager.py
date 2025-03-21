@@ -10,11 +10,11 @@ class Config:
     BOT_TOKEN = ""
     HELPER_TOKENS = ""
     BOT_MAX_TASKS = 0
-    BOT_PM = False
+    BOT_PM = True
     CMD_SUFFIX = ""
     DEFAULT_LANG = "en"
     DATABASE_URL = ""
-    DEFAULT_UPLOAD = "rc"
+    DEFAULT_UPLOAD = "gd"
     DELETE_LINKS = False
     EQUAL_SPLITS = False
     EXCLUDED_EXTENSIONS = ""
@@ -23,7 +23,7 @@ class Config:
     MEDIA_STORE = True
     FORCE_SUB_IDS = ""
     GDRIVE_ID = ""
-    GD_DESP = "Uploaded with WZ Bot"
+    GD_DESP = "Uploaded with @karmamirror_bot"
     INSTADL_API = ""
     IMDB_TEMPLATE = ""
     INCOMPLETE_TASK_NOTIFIER = False
@@ -87,17 +87,17 @@ class Config:
     VERIFY_TIMEOUT = 0
     LOGIN_PASS = ""
     TORRENT_TIMEOUT = 0
-    TIMEZONE = "Asia/Kolkata"
+    TIMEZONE = "Asia/Jakarta"
     USER_MAX_TASKS = 0
     USER_TIME_INTERVAL = 0
     UPLOAD_PATHS = {}
     UPSTREAM_REPO = ""
-    UPSTREAM_BRANCH = "master"
-    UPDATE_PKGS = False
+    UPSTREAM_BRANCH = "prod"
+    UPDATE_PKGS = True
     USENET_SERVERS = []
     USER_SESSION_STRING = ""
     USER_TRANSMISSION = True
-    USE_SERVICE_ACCOUNTS = False
+    USE_SERVICE_ACCOUNTS = True
     WEB_PINCODE = True
     YT_DLP_OPTIONS = {}
 
