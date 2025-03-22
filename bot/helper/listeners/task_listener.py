@@ -344,7 +344,7 @@ class TaskListener(TaskConfig):
             msg += f"\n📄 <b>File: </b><i>{folders}</i>"
             if mime_type != 0:
                 msg += f"\n┠ <b>Corrupted Files</b> → {mime_type}"
-            msg += f"\n\n👽 <b>Pencermin: </b><a href='tg://user?id={self.user_id}'><code>{self.tag.split("@")[1]}</code></a> (<code>{self.user_id}</code>)"
+            msg += f"\n\n👽 <b>Pencermin: </b><a href='tg://user?id={self.user_id}'>{self.tag.split("@")[1]}</a> (<code>{self.user_id}</code>)"
 
             if self.bot_pm:
                 pmsg = msg
@@ -411,8 +411,8 @@ class TaskListener(TaskConfig):
             else:
                 msg += f"\n┃\n┠ Path: <code>{rclone_path}</code>"
                 button = None
-            msg += f"\n\n👽 <b>Pencermin: </b><a href='tg://user?id={self.user_id}'><code>{self.tag.split("@")[1]}</code></a> (<code>{self.user_id}</code>)"
-            msg += f"\n#️⃣<code>#id{self.user_id}</code>"
+            msg += f"\n\n👽 <b>Pencermin: </b><a href='tg://user?id={self.user_id}'>{self.tag.split("@")[1]}</a> (<code>{self.user_id}</code>)"
+            msg += f"\n#️⃣#id{self.user_id}"
             await send_message(self.message, msg, button)
         if self.seed:
             await clean_target(self.up_dir)
