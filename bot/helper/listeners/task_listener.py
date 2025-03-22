@@ -336,18 +336,15 @@ class TaskListener(TaskConfig):
         ):
             await database.rm_complete_task(self.message.link)
         msg = (
-            f"<b><i>{escape(self.name)}</i></b>\n│"
-            f"\n┟ <b>Task Size</b> → {get_readable_file_size(self.size)}"
-            f"\n┠ <b>Time Taken</b> → {get_readable_time(time() - self.message.date.timestamp())}"
-            f"\n┠ <b>In Mode</b> → {self.mode[0]}"
-            f"\n┠ <b>Out Mode</b> → {self.mode[1]}"
+            f"📁 <b>Nama: </b>`{escape(self.name)}`"
+            f"\n📦 <b>Ukuran: </b>`{get_readable_file_size(self.size)}`"
         )
         LOGGER.info(f"Task Done: {self.name}")
         if self.is_leech:
-            msg += f"\n┠ <b>Total Files</b> → {folders}"
+            msg += f"\n📄 <b>File: </b><i>{folders}</i>"
             if mime_type != 0:
                 msg += f"\n┠ <b>Corrupted Files</b> → {mime_type}"
-            msg += f"\n┖ <b>Task By</b> → {self.tag}\n\n"
+            msg += f"\n👽 <b>Pencermin: </b>`{self.tag}`"
 
             if self.bot_pm:
                 pmsg = msg
@@ -380,10 +377,10 @@ class TaskListener(TaskConfig):
                 if fmsg != "":
                     await send_message(log_chat, msg + fmsg)
         else:
-            msg += f"\n│\n┟ <b>Type</b> → {mime_type}"
+            msg += f"\n🏷 <b>Tipe: </b>`{mime_type}`"
             if mime_type == "Folder":
-                msg += f"\n┠ <b>SubFolders</b> → {folders}"
-                msg += f"\n┠ <b>Files</b> → {files}"
+                msg += f"\n📂 <b>Folder: </b>`{folders}`"
+                msg += f"\n📄 <b>File: </b>`{files}`"
             if (
                 link
                 or rclone_path
@@ -414,7 +411,7 @@ class TaskListener(TaskConfig):
             else:
                 msg += f"\n┃\n┠ Path: <code>{rclone_path}</code>"
                 button = None
-            msg += f"\n┃\n┖ <b>Task By</b> → {self.tag}"
+            msg += f"\n👽 <b>Pencermin: </b>`{self.tag}` (`{self.user_id}`)"
             await send_message(self.message, msg, button)
         if self.seed:
             await clean_target(self.up_dir)
