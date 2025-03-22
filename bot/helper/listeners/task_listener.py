@@ -379,7 +379,7 @@ class TaskListener(TaskConfig):
         else:
             msg += f"\n🏷 <b>Tipe: </b><code>{mime_type}</code>"
             if mime_type == "Folder":
-                msg += f"\n📂 <b>Folder: </b><code>{folders}</code>"
+                msg += f"\n📂 <b>Folder: </b><code>{folders + 1}</code>"
                 msg += f"\n📄 <b>File: </b><code>{files}</code>"
             if (
                 link
