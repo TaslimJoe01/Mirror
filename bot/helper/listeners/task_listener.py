@@ -336,15 +336,15 @@ class TaskListener(TaskConfig):
         ):
             await database.rm_complete_task(self.message.link)
         msg = (
-            f"📁 <b>Nama: </b>`{escape(self.name)}`"
-            f"\n📦 <b>Ukuran: </b>`{get_readable_file_size(self.size)}`"
+            f"📁 <b>Nama: </b><code>{escape(self.name)}</code>"
+            f"\n📦 <b>Ukuran: </b><code>{get_readable_file_size(self.size)}</code>"
         )
         LOGGER.info(f"Task Done: {self.name}")
         if self.is_leech:
             msg += f"\n📄 <b>File: </b><i>{folders}</i>"
             if mime_type != 0:
                 msg += f"\n┠ <b>Corrupted Files</b> → {mime_type}"
-            msg += f"\n👽 <b>Pencermin: </b>`{self.tag}`"
+            msg += f"\n👽 <b>Pencermin: </b><code>{self.tag}<code>"
 
             if self.bot_pm:
                 pmsg = msg
@@ -377,10 +377,10 @@ class TaskListener(TaskConfig):
                 if fmsg != "":
                     await send_message(log_chat, msg + fmsg)
         else:
-            msg += f"\n🏷 <b>Tipe: </b>`{mime_type}`"
+            msg += f"\n🏷 <b>Tipe: </b><code>{mime_type}</code>"
             if mime_type == "Folder":
-                msg += f"\n📂 <b>Folder: </b>`{folders}`"
-                msg += f"\n📄 <b>File: </b>`{files}`"
+                msg += f"\n📂 <b>Folder: </b><code>{folders}</code>"
+                msg += f"\n📄 <b>File: </b><code>{files}</code>"
             if (
                 link
                 or rclone_path
@@ -411,7 +411,8 @@ class TaskListener(TaskConfig):
             else:
                 msg += f"\n┃\n┠ Path: <code>{rclone_path}</code>"
                 button = None
-            msg += f"\n👽 <b>Pencermin: </b>`{self.tag}` (`{self.user_id}`)"
+            msg += f"\n\n👽 <b>Pencermin: </b><code>{self.tag}</code> (<code>{self.user_id}</code>)"
+            msg += f"\n#️⃣<code>#id{self.user_id}</code>"
             await send_message(self.message, msg, button)
         if self.seed:
             await clean_target(self.up_dir)
